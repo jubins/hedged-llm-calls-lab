@@ -9,7 +9,7 @@ jobs:
       matrix: {python: ["3.11", "3.12"]}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ matrix.python }}", cache: pip}
       - run: pip install -r requirements-dev.txt
       - run: ruff check .
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with: {python-version: "3.12"}
       - run: pip install -r requirements.txt
       - run: PYTHONPATH=. python scripts/simulate.py --requests 3000 --concurrency 100 --scale 0.25
